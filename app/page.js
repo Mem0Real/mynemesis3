@@ -11,7 +11,7 @@ export default async function Home() {
           <Sidebar />
         </div>
       </Suspense>
-      <div className="flex-initial w-full h-screen pt-12">
+      <div className="flex-initial w-full h-screen pt-12 md:ml-56">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-yellow-300">Home Page</h1>
           <p>
