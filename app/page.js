@@ -4,15 +4,14 @@ import Link from "next/link";
 import { Loader } from "./components/loader/Loader";
 
 export default async function Home() {
-
   return (
-    <main className="flex min-h-screen min-w-screen items-center justify-center text-white">
+    <main className="flex min-h-screen min-w-screen items-center justify-center text-white relative">
       <Suspense fallback={<Loader />}>
-        <div className="flex-none">
+        <div className="flex-none absolute top-0 left-0">
           <Sidebar />
         </div>
       </Suspense>
-      <div className="flex-initial w-full min-h-screen pt-12">
+      <div className="flex-initial w-full h-screen pt-12">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-yellow-300">Home Page</h1>
           <p>
