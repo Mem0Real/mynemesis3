@@ -32,14 +32,14 @@ export default async function Children({
               return (
                 <Link
                   key={item.id}
-                  href={`/collection/${categoryName}/${parentName}/${child.shortName}/${item.shortName}`}
+                  href={`/collection/${categoryName}/${parentName}/${child.shortName}/${item.id}`}
                 >
                   <div className="flex flex-col justify-between items-center cursor-pointer group">
                     <h1 className="text-center text-lg rounded-md underline underline-offset-8 group-hover:underline-offset-4 md:mb-6">
                       {item.name}
                     </h1>
                     <Image
-                      src={`/images/${categoryName}/${parentName}/${child.shortName}/${item.shortName}.png`}
+                      src={`/images/${categoryName}/${parentName}/${child.shortName}/${item.id}.png`}
                       width="200"
                       height="200"
                       alt={`${item.name}-image`}
