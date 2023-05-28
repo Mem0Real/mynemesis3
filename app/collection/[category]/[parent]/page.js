@@ -2,6 +2,7 @@ import getParent from "@/libraries/getParent";
 import { Suspense } from "react";
 import Children from "./Children";
 import getCategory from "@/libraries/getCategory";
+import Link from "next/link";
 
 export async function generateMetadata({ params: { parent } }) {
   let firstLetter = parent[0];
@@ -30,6 +31,11 @@ export default async function Parents(parent) {
       <h1 className="flex-none text-xl md:mb-12 border border-t-0 border-3 border-black rounded-lg md:px-6 md:py-4">
         {parentItem.name}
       </h1>
+      <Link href={`/collection/${currentCategory}`}>
+        <h2 className="absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
+          Go Back
+        </h2>
+      </Link>
       <div className="flex-initial min-h-screen w-screen">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Children

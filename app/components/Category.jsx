@@ -28,6 +28,7 @@ export default async function Category() {
                       <summary className="w-64 h-8 cursor-pointer py-6">
                         {parent.name}
                       </summary>
+                      
                       <div>
                         {category.children.map((child) => {
                           return (

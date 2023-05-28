@@ -16,8 +16,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-20 shadow-xl bg-neutral-900 text-white navbar">
-        <div className="flex justify-between items-center w-full h-full px-8 2xl:px-16 pb-16 sm:pb-0 text-sm">
+      <nav className="w-full md:h-20 h-fit shadow-xl bg-neutral-900 text-white navbar">
+        <div className="flex justify-between items-center w-full h-full px-8 py-2 text-sm">
           <Link href="/">
             <div className="flex justify-evenly items-center">
               <Image
@@ -85,7 +85,7 @@ export const Navbar = () => {
         </div>
       </nav>
       <div
-        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto ${
+        className={`w-full flex-grow lg:flex lg:items-center lg:w-auto z-10 ${
           isOpen ? "block" : "hidden"
         }`}
       >

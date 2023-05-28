@@ -4,6 +4,9 @@ import Image from "next/image";
 import { Suspense } from "react";
 
 export default async function Parents({ categoryName, categoryId }) {
+  function isObjEmpty(obj) {
+    return Object.keys(obj).length === 0;
+  }
   const parentsData = await getParents(categoryId);
   const parents = parentsData.map((parent) => {
     return (
@@ -20,7 +23,7 @@ export default async function Parents({ categoryName, categoryId }) {
           </Link>
         </div>
         <Suspense fallback={<h1>Loading...</h1>}>
-          <div className="flex flex-wrap  justify-evenly items-center w-screen">
+          <div className="flex flex-wrap flex-col md:flex-row justify-evenly items-center w-screen">
             {parent.children.map((child) => {
               return (
                 <Link

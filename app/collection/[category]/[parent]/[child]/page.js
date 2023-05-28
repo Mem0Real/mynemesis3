@@ -4,6 +4,7 @@ import getChild from "@/libraries/getChild";
 
 import { Suspense } from "react";
 import Items from "./Items";
+import Loading from "./loading";
 
 export async function generateMetadata({ params: { child } }) {
   let firstLetter = child[0];
@@ -43,7 +44,7 @@ export default async function Children(child) {
       </h1>
       <div className="flex-initial min-h-screen w-screen">
         <div className="flex">
-          <Suspense fallback={<h1>Loading...</h1>}>
+          <Suspense fallback={<Loading />}>
             <Items
               categoryName={categoryItem.shortName}
               parentName={parentItem.shortName}
