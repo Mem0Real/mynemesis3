@@ -48,6 +48,7 @@ model Items {
   brand         String?
   model         String?
   quantity      Int?
+  price         Int?
   images        String[]
   category      Categories    @relation(fields: [CategoryId], references: [id])
   parent        Parents       @relation(fields: [ParentId], references: [id])

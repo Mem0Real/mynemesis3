@@ -22,7 +22,6 @@ export default async function Parents(parent) {
   const parentData = await getParent(categoryItem.id, currentParent);
 
   const parentItem = parentData[0];
-  console.log(parentItem);
   return (
     <div
       key={parentItem.id}

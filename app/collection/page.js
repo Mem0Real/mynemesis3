@@ -13,7 +13,7 @@ export default async function CollectionPage() {
       >
         <div className="flex flex-col justify-center items-center w-screen">
           <Link href={`/collection/${category.shortName}`}>
-            <h1 className="text-center text-lg my-5 underline underline-offset-8 hover:underline-offset-4">
+            <h1 className="text-center text-xl my-5 underline underline-offset-8 hover:underline-offset-4">
               {category.name}
             </h1>
             <p className=" h-24">{category.description}</p>

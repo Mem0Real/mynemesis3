@@ -23,7 +23,7 @@ export default async function Children({
             <h1 className="text-center text-lg my-5 underline underline-offset-8 hover:underline-offset-4">
               {child.name}
             </h1>
-            <p className=" h-24">{child.description}</p>
+            <p className="h-24">{child.description}</p>
           </Link>
         </div>
         <Suspense fallback={<h1>Loading...</h1>}>
