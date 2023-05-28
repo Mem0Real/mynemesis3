@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: "My Nemesis 3.0",
-  description: "Full Stack page for viewing different products",
+  description: "Full Stack page for viewing different ",
 };
 
 export default function RootLayout({ children }) {

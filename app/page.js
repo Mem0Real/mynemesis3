@@ -5,9 +5,9 @@ import { Loader } from "./components/loader/Loader";
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen min-w-screen items-center justify-center text-white relative">
+    <main className="flex min-h-screen min-w-screen items-center justify-center bg-neutral-100 text-neutral-900 relative">
       <Suspense fallback={<Loader />}>
-        <div className="flex-none absolute top-0 left-0">
+        <div className="flex-none absolute top-0 left-0 hidden md:block">
           <Sidebar />
         </div>
       </Suspense>
