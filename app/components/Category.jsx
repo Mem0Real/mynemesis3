@@ -10,7 +10,7 @@ export default async function Category() {
     return (
       <div
         key={category.id}
-        className="flex flex-col items-start ps-2 text-sm mb-1"
+        className="flex flex-col items-start ps-2 text-md mb-1"
       >
         <details>
           <summary className="w-64 h-8 cursor-pointer py-6">
@@ -22,20 +22,20 @@ export default async function Category() {
                 parent.CategoryId === category.id && (
                   <div
                     key={parent.id}
-                    className="flex flex-col items-start ps-2 text-sm mb-1"
+                    className="flex flex-col items-start ps-2 mb-1"
                   >
                     <details>
                       <summary className="w-64 h-8 cursor-pointer py-6">
                         {parent.name}
                       </summary>
-                      
+
                       <div>
                         {category.children.map((child) => {
                           return (
                             child.ParentId === parent.id && (
                               <div
                                 key={child.id}
-                                className="flex flex-col items-start ps-2 text-sm mb-1"
+                                className="flex flex-col items-start ps-2 mb-1"
                               >
                                 <details>
                                   <summary className="w-64 h-8 cursor-pointer py-6">
@@ -47,7 +47,7 @@ export default async function Category() {
                                         item.ChildId === child.id && (
                                           <div
                                             key={item.id}
-                                            className="flex flex-col items-start ps-2 text-sm mb-1"
+                                            className="flex flex-col items-start ps-2 mb-1"
                                           >
                                             <div className="w-64 h-8 cursor-pointer py-6">
                                               {item.name}

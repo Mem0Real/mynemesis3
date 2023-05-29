@@ -30,7 +30,7 @@ export const Navbar = () => {
   return (
     <div ref={menuRef}>
       <nav className="w-full md:h-20 h-fit shadow-xl bg-neutral-900 text-white navbar">
-        <div className="flex justify-between items-center w-full h-full px-8 py-2 text-sm">
+        <div className="flex justify-between items-center w-full h-full px-8 py-2 text-md">
           <Link href="/">
             <div className="flex justify-evenly items-center">
               <Image
