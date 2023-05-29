@@ -35,9 +35,10 @@ export default async function Parents(parent) {
           </h2>
         </Link>
       </div>
-      <h1 className="flex-none text-xl md:mb-12 border border-t-0 border-3 border-black rounded-lg md:px-6 md:py-4">
+      <h1 className="flex-none text-xl md:mb-12 border border-x-0 border-3 border-black rounded-lg md:px-6 md:py-4">
         {parentItem.name}
       </h1>
+      <p className=" h-24">{parentItem.description}</p>
 
       <div className="flex-initial min-h-screen w-screen">
         <Suspense fallback={<h1>Loading...</h1>}>

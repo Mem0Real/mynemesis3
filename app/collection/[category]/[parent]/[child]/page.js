@@ -50,6 +50,8 @@ export default async function Children(child) {
       <h1 className="flex-none text-xl md:mb-12 border border-t-0 border-3 border-black rounded-lg md:px-6 md:py-4">
         {childItem.name}
       </h1>
+      <p className=" h-24">{childItem.description}</p>
+
       <div className="flex-initial min-h-screen w-screen">
         <div className="flex">
           <Suspense fallback={<Loading />}>

@@ -26,7 +26,7 @@ const SearchInput = () => {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           type="text"
-          className="px-10 py-3 w-1/5 rounded-xl sm:px-6 sm:py-3 flex-1 text-zinc-200 bg-zinc-800"
+          className="px-10 py-3 w-1/5 rounded-3xl sm:px-12 sm:py-2 flex-1 text-zinc-200 bg-zinc-800"
           placeholder="What are you looking for?"
         />
         <button type="submit" className="-ml-6" onClick={onSearch}>

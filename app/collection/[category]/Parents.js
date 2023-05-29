@@ -16,10 +16,9 @@ export default async function Parents({ categoryName, categoryId }) {
       >
         <div className="flex flex-col justify-center items-center w-screen">
           <Link href={`/collection/${categoryName}/${parent.shortName}`}>
-            <h1 className="text-center text-lg my-5 underline underline-offset-8 hover:underline-offset-4">
+            <h1 className="text-center text-lg my-5 sm:my-9 ring hover:ring-offset-4 px-5 rounded-md ring-zinc-900">
               {parent.name}
             </h1>
-            <p className=" h-24">{parent.description}</p>
           </Link>
         </div>
         <Suspense fallback={<h1>Loading...</h1>}>
