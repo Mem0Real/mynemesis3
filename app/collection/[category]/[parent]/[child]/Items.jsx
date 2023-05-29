@@ -17,7 +17,7 @@ export default async function Items({
   const itemsData = await getItems(categoryId, parentId, childId);
   if (!isObjEmpty(itemsData)) {
     return (
-      <div className="flex flex-col flex-wrap justify-center items-center ps-2 text-sm mb-1 w-screen bg-neutral-300 text-neutral-900">
+      <div className="flex flex-col flex-wrap justify-center items-center ps-2 text-sm mb-1 w-screen bg-neutral-100 text-neutral-900">
         {itemsData.map((item) => {
           return (
             <div

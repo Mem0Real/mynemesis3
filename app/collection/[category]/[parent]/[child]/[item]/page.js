@@ -40,7 +40,7 @@ export default async function Items(item) {
   }
   if (!isObjEmpty(itemDetail)) {
     return (
-      <div className="flex flex-col justify-center items-center w-screen min-h-screen bg-white text-black">
+      <div className="flex flex-col justify-center items-center w-screen min-h-screen bg-neutral-100 text-neutral-900">
         <div className="flex justify-end items-end w-full p-4">
           <Link
             href={`/collection/${currentCategory}/${currentParent}/${currentChild}`}
@@ -50,6 +50,7 @@ export default async function Items(item) {
             </h2>
           </Link>
         </div>
+
         <div className="flex flex-col md:flex-row justify-center items-center w-screen min-h-screen">
           <Image
             src={`/images/${currentCategory}/${currentParent}/${currentChild}/${itemDetail.id}.png`}

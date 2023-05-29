@@ -21,7 +21,7 @@ export default async function Category(category) {
   return (
     <div
       key={categoryItem.id}
-      className="flex flex-col justify-between items-center text-sm mb-1 w-screen bg-neutral-300 text-neutral-900 h-fit"
+      className="flex flex-col justify-between items-center text-sm mb-1 w-screen bg-neutral-100 text-neutral-900 h-fit"
     >
       <div className="flex justify-end items-end w-full p-4">
         <Link href={`/collection/`}>
@@ -30,12 +30,14 @@ export default async function Category(category) {
           </h2>
         </Link>
       </div>
-      <h1 className="flex-none text-xl md:mb-12 border border-x-0 border-3 rounded-md border-black md:px-6 md:py-2">
+      <h1 className="flex-none text-lg md:mb-12 border border-x-0 border-3 rounded-md border-black md:px-6 md:py-2">
         {categoryItem.name}
       </h1>
-      <p className=" h-24">{categoryItem.description}</p>
+      <p className="h-24 text-center mt-4 md:mt-2">
+        {categoryItem.description}
+      </p>
 
-      <div className="flex-initial min-h-screen w-screen">
+      <div className="flex-initial min-h-screen w-full">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Parents
             categoryName={categoryItem.shortName}
