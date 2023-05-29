@@ -5,6 +5,7 @@ import Logo from "@/public/images/nemesisLogo.jpg";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
 import { useState } from "react";
+import SearchInput from "../SearchInput";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export const Navbar = () => {
           </Link>
           <div>
             <ul className="hidden sm:flex">
+              <SearchInput />
               <Link href="/collection">
                 <li className="ml-10 hover:border-b border-white border-spacing-y-2 py-3 font-medium">
                   Collection
@@ -110,6 +112,9 @@ export const Navbar = () => {
               Admin
             </li>
           </Link>
+          <div className="py-6">
+            <SearchInput />
+          </div>
         </ul>
       </div>
     </>
