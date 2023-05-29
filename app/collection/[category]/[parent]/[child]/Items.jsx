@@ -18,13 +18,6 @@ export default async function Items({
   if (!isObjEmpty(itemsData)) {
     return (
       <div className="flex flex-col flex-wrap justify-center items-center ps-2 text-sm mb-1 w-screen bg-neutral-300 text-neutral-900">
-        <div className="flex items-end justify-end w-screen md:px-12 px-4 -mt-10 mb-6 md:-mt-28 md:mb-12">
-          <Link href={`/collection/${categoryName}/${parentName}`}>
-            <h2 className="text-sm px-2 py-1 mt-4 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
-              Go Back
-            </h2>
-          </Link>
-        </div>
         {itemsData.map((item) => {
           return (
             <div
@@ -55,11 +48,6 @@ export default async function Items({
   } else {
     return (
       <div className="flex flex-col justify-around items-center text-sm mb-1 w-screen bg-neutral-300 text-neutral-900 h-fit">
-        <Link href={`/collection/${categoryName}/${parentName}`}>
-          <h2 className="block md:absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
-            Go Back
-          </h2>
-        </Link>
         <h1>Empty</h1>
       </div>
     );

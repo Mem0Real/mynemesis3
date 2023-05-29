@@ -32,7 +32,7 @@ export default async function Children({
             </Link>
           </div>
           <Suspense fallback={<h1>Loading...</h1>}>
-            <div className="flex flex-wrap  justify-evenly items-center w-screen">
+            <div className="flex flex-col lg:flex-row flex-wrap justify-evenly items-center w-screen">
               {child.items.map((item) => {
                 return (
                   <Link
@@ -62,11 +62,6 @@ export default async function Children({
   } else {
     return (
       <div className="flex flex-col justify-around items-center text-sm mb-1 w-screen bg-neutral-300 text-neutral-900 h-fit">
-        <Link href={`/collection/${categoryName}`}>
-          <h2 className="block md:absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
-            Go Back
-          </h2>
-        </Link>
         <h1>Empty</h1>
       </div>
     );

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Logo from "@/public/images/nemesisLogo.jpg";
 import Link from "next/link";
 import { Poppins } from "next/font/google";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import SearchInput from "../SearchInput";
 
 const poppins = Poppins({
@@ -14,9 +14,21 @@ const poppins = Poppins({
 });
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+        console.log(menuRef.current);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+  }, []);
 
   return (
-    <>
+    <div ref={menuRef}>
       <nav className="w-full md:h-20 h-fit shadow-xl bg-neutral-900 text-white navbar">
         <div className="flex justify-between items-center w-full h-full px-8 py-2 text-sm">
           <Link href="/">
@@ -117,7 +129,7 @@ export const Navbar = () => {
           </div>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -41,7 +41,7 @@ export default async function Items(item) {
   if (!isObjEmpty(itemDetail)) {
     return (
       <div className="flex flex-col justify-center items-center w-screen min-h-screen bg-white text-black">
-        <div className="flex items-end justify-end w-screen md:px-12 px-4 mb-6">
+        <div className="flex justify-end items-end w-full p-4">
           <Link
             href={`/collection/${currentCategory}/${currentParent}/${currentChild}`}
           >
@@ -84,13 +84,15 @@ export default async function Items(item) {
   } else {
     return (
       <div className="flex flex-col justify-around items-center text-sm mb-1 w-screen bg-neutral-300 text-neutral-900 h-fit">
-        <Link
-          href={`/collection/${currentCategory}/${currentParent}${currentChild}`}
-        >
-          <h2 className="absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
-            Go Back
-          </h2>
-        </Link>
+        <div className="flex justify-end items-end w-full p-4">
+          <Link
+            href={`/collection/${currentCategory}/${currentParent}${currentChild}`}
+          >
+            <h2 className="absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
+              Go Back
+            </h2>
+          </Link>
+        </div>
         <h1>Empty</h1>
       </div>
     );

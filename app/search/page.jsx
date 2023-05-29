@@ -46,9 +46,9 @@ const SearchPage = async ({ searchParams }) => {
     }
     return (
       <div className="flex flex-col gap-8 text-zinc-900 mt-2 md:mt-12">
-        <p className="text-zinc-700 absolute right-12 top-24">
-          Showing results for "{searchQuery}"
-        </p>
+        <div className="flex justify-end px-3">
+          <p className="text-zinc-700">Showing results for "{searchQuery}"</p>
+        </div>
         <div className="flex flex-col justify-center items-center gap-8">
           {categoryContent}
           {parentContent}

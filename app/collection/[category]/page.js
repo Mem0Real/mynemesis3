@@ -23,14 +23,16 @@ export default async function Category(category) {
       key={categoryItem.id}
       className="flex flex-col justify-between items-center text-sm mb-1 w-screen bg-neutral-300 text-neutral-900 h-fit"
     >
+      <div className="flex justify-end items-end w-full p-4">
+        <Link href={`/collection/`}>
+          <h2 className="px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
+            Go Back
+          </h2>
+        </Link>
+      </div>
       <h1 className="flex-none text-xl md:mb-12 border border-t-0 border-3 border-black rounded-lg md:px-6 md:py-4">
         {categoryItem.name}
       </h1>
-      <Link href={`/collection/`}>
-        <h2 className="block md:absolute z-0 top-20 right-0 px-2 py-1 md:top-24 md:right-12 md:px-4 md:py-2 bg-neutral-900 text-white rounded-lg">
-          Go Back
-        </h2>
-      </Link>
       <div className="flex-initial min-h-screen w-screen">
         <Suspense fallback={<h1>Loading...</h1>}>
           <Parents
