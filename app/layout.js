@@ -1,4 +1,5 @@
 import Navbar from "./components/navigation/Navbar";
+import Footer from "./components/navigation/Footer";
 
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <div className="flex flex-col overflow-x-hidden no-scrollbar overflow-y-auto overscroll-y-none bg-neutral-100">
           <Navbar />
           <div className="min-h-screen h-fit">{children}</div>
+          <Footer />
         </div>
       </body>
     </html>
