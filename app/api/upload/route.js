@@ -25,16 +25,7 @@ export async function POST(request, response) {
   const shortName = formData.get("shortName");
   const description = formData.get("description");
 
-  if (!file) {
-    return NextResponse.json(
-      { error: "File blob is required." },
-      { status: 400 }
-    );
-  }
-  const buffer = Buffer.from(await file.arrayBuffer());
-  const relativeUploadDir = `/uploads/${dateFn.format(Date.now(), "dd-MM-Y")}`;
-  const uploadDir = join(process.cwd(), "public", relativeUploadDir);
-
+  //   Write to databse
   const writeToDb = async (dir) => {
     let shortname, desc;
 
@@ -62,40 +53,57 @@ export async function POST(request, response) {
     });
   };
 
-  try {
-    await stat(uploadDir);
-  } catch (e) {
-    if (e.code === "ENOENT") {
-      await mkdir(uploadDir, { recursive: true });
-    } else {
-      console.error(
-        "Error while trying to create directory when uploading a file\n",
-        e
-      );
+  if (!file) {
+    writeToDb("").then((data) =>
+      NextResponse.json({ data: data, message: "Created Db Successfully." })
+    );
+    // return NextResponse.json(
+    //   { error: "File blob is required." },
+    //   { status: 400 }
+    // );
+  } else {
+    const buffer = Buffer.from(await file.arrayBuffer());
+    const relativeUploadDir = `/uploads/${dateFn.format(
+      Date.now(),
+      "dd-MM-Y"
+    )}`;
+    const uploadDir = join(process.cwd(), "public", relativeUploadDir);
+
+    try {
+      await stat(uploadDir);
+    } catch (e) {
+      if (e.code === "ENOENT") {
+        await mkdir(uploadDir, { recursive: true });
+      } else {
+        console.error(
+          "Error while trying to create directory when uploading a file\n",
+          e
+        );
+        return NextResponse.json(
+          { error: "Something went wrong." },
+          { status: 500 }
+        );
+      }
+    }
+
+    try {
+      const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
+      const filename = `${file.name.replace(
+        /\.[^/.]+$/,
+        ""
+      )}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
+      // let dir = `${uploadDir}/${filename}`;
+      await writeFile(`${uploadDir}/${filename}`, buffer);
+      let imageUrl = `${relativeUploadDir}/${filename}`;
+      writeToDb(imageUrl);
+
+      return NextResponse.json({ imgUrl: `${relativeUploadDir}/${filename}` });
+    } catch (e) {
+      console.error("Error while trying to upload a file\n", e);
       return NextResponse.json(
         { error: "Something went wrong." },
         { status: 500 }
       );
     }
-  }
-
-  try {
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const filename = `${file.name.replace(
-      /\.[^/.]+$/,
-      ""
-    )}-${uniqueSuffix}.${mime.getExtension(file.type)}`;
-    // let dir = `${uploadDir}/${filename}`;
-    await writeFile(`${uploadDir}/${filename}`, buffer);
-    let imageUrl = `${relativeUploadDir}/${filename}`;
-    writeToDb(imageUrl);
-
-    return NextResponse.json({ imgUrl: `${relativeUploadDir}/${filename}` });
-  } catch (e) {
-    console.error("Error while trying to upload a file\n", e);
-    return NextResponse.json(
-      { error: "Something went wrong." },
-      { status: 500 }
-    );
   }
 }
