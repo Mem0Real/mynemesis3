@@ -42,9 +42,9 @@ export default function Create() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     let res = await createCategory(data);
-    console.log(res);
     setStatus(res);
     setData(initialValues);
+    setImageSrc();
   };
 
   return (
@@ -68,7 +68,7 @@ export default function Create() {
               defaultValue=""
               required
             >
-              <option value="" disabled hidden>
+              <option value="" disabled>
                 Select Entry
               </option>
               <option value="Categories" className="text-sm">
@@ -96,6 +96,7 @@ export default function Create() {
                   value={data.name}
                   className="border border-neutral-700 rounded-md w-full py-2"
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div className="flex flex-col justify-evenly items-center my-12 md:mt-12 px-12">

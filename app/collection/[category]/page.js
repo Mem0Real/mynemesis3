@@ -1,7 +1,8 @@
-import getCategory from "@/libraries/getCategory";
+// import getCategory from "@/libraries/getCategory";
 import Parents from "./Parents";
 import { Suspense } from "react";
 import Link from "next/link";
+import getEntry from "@/libraries/getEntry";
 
 export async function generateMetadata({ params: { category } }) {
   let firstLetter = category[0];
@@ -15,8 +16,11 @@ export async function generateMetadata({ params: { category } }) {
 
 export default async function Category(category) {
   const currentCategory = category.params.category;
-  const categoryData = await getCategory(currentCategory);
+  const categoryData = await getEntry("categories", currentCategory);
   const categoryItem = categoryData[0];
+
+  // const categoryData = await getCategory(currentCategory);
+  // const categoryItem = categoryData[0];
 
   return (
     <div

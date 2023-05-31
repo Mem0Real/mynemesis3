@@ -43,7 +43,8 @@ export async function POST(request, response) {
     } else {
       desc = description;
     }
-    await prisma[entry].create({
+
+    const res = await prisma[entry].create({
       data: {
         name: name,
         shortName: shortname,
@@ -51,6 +52,8 @@ export async function POST(request, response) {
         description: desc,
       },
     });
+
+    // return NextResponse.json(res);
   };
 
   if (!file) {
@@ -95,8 +98,8 @@ export async function POST(request, response) {
       // let dir = `${uploadDir}/${filename}`;
       await writeFile(`${uploadDir}/${filename}`, buffer);
       let imageUrl = `${relativeUploadDir}/${filename}`;
-      writeToDb(imageUrl);
-
+      let dbStat = writeToDb(imageUrl);
+      //   return NextResponse.json(dbStat);
       return NextResponse.json({ imgUrl: `${relativeUploadDir}/${filename}` });
     } catch (e) {
       console.error("Error while trying to upload a file\n", e);
